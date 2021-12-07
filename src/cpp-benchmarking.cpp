@@ -2,8 +2,6 @@
 
 namespace cppbenchmarking {
 
-int add_one(int x){
-  return x + 1;
-}
+int add_one(int x) { return x + 1; }
 
 } // namespace cppbenchmarking
