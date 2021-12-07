@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.9)
 
 # Set a name and a version number for your project:
 project(
-  cpp-benchmarking
+  cppbench
   VERSION 0.0.1
   LANGUAGES CXX)
 
@@ -29,22 +29,27 @@ if(BUILD_TESTING)
   add_subdirectory(tests)
 endif()
 
+# compile the benchmarks
+set(BENCHMARK_ENABLE_TESTING OFF)
+add_subdirectory(ext/benchmark)
+add_subdirectory(bench)
+
 # Add an alias target for use if this project is included as a subproject in
 # another project
-add_library(cpp-benchmarking::cpp-benchmarking ALIAS cpp-benchmarking)
+add_library(cppbench::cppbench ALIAS cppbench)
 
 # Install targets and configuration
 install(
-  TARGETS cpp-benchmarking
-  EXPORT cpp-benchmarking-config
+  TARGETS cppbench
+  EXPORT cppbench-config
   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 install(
-  EXPORT cpp-benchmarking-config
-  NAMESPACE cpp-benchmarking::
-  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/cpp-benchmarking)
+  EXPORT cppbench-config
+  NAMESPACE cppbench::
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/cppbench)
 
 install(DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/include/
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})

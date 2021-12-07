@@ -1,7 +1,7 @@
-#include "catch2/catch.hpp"
-#include "cpp-benchmarking/cpp-benchmarking.hpp"
+#include "cppbench/add_one.hpp"
+#include <catch2/catch.hpp>
 
-using namespace cppbenchmarking;
+using namespace cppbench;
 
 TEST_CASE("add_one", "[adder]") {
   REQUIRE(add_one(0) == 1);

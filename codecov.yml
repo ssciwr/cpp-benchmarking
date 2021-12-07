@@ -20,5 +20,5 @@ comment:
   require_changes: no
 
 ignore:
-  - "**/tests"
-  - "**/Catch2"
+  - "**/tests/"
+  - "**/ext/"
