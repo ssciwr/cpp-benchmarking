@@ -20,5 +20,7 @@ comment:
   require_changes: no
 
 ignore:
-  - "**/tests/"
-  - "**/ext/"
+  - "**/tests/**/*"
+  - "**/bench/**/*"
+  - "**/app/**/*"
+  - "**/ext/**/*"
