@@ -22,7 +22,7 @@ jobs:
     runs-on: ${{matrix.os}}
     strategy:
       matrix:
-        os: [ubuntu-20.04, macos-11, windows-2019]
+        os: [ubuntu-20.04, macos-11]
 
     steps:
       - uses: actions/checkout@v2
@@ -32,9 +32,10 @@ jobs:
       - name: Build & test
         run: |
           mkdir build && cd build
-          cmake -DCMAKE_BUILD_TYPE=Debug ..
+          cmake -DCMAKE_BUILD_TYPE=Release ..
           cmake --build . -j 2
           ctest
+          ./bench/bench
 
   coverage-test:
     name: Coverage Testing
@@ -58,7 +59,7 @@ jobs:
           cmake --build . -j 2
           ctest
 
-      - name: Coverage
+      - name: Generate coverage report
         run: |
           gcovr -r . -f src/ --xml -o coverage.xml
 
