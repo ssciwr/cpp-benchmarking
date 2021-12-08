@@ -1,3 +1,3 @@
-#include <benchmark/benchmark.h>
+#include "bench.hpp"
 
 BENCHMARK_MAIN();

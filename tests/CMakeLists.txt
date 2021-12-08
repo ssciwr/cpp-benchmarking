@@ -1,4 +1,4 @@
-add_executable(tests tests.cpp add_one_t.cpp)
+add_executable(tests tests.cpp small_map_t.cpp)
 target_link_libraries(tests PUBLIC cppbench Catch2::Catch2)
 
 # allow user to run tests with `make test` or `ctest`
