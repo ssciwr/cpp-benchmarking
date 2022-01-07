@@ -32,3 +32,5 @@ todo
 ## Simulation
 
 todo
+
+This repo was quickly set up using the SSC [C++ Project Cookiecutter](https://github.com/ssciwr/cookiecutter-cpp-project).
