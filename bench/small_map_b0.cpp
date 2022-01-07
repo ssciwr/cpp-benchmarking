@@ -1,5 +1,5 @@
 #include "bench.hpp"
-#include "cppbench/small_map.hpp"
+#include "cppbench/vec_map.hpp"
 #include <limits>
 #include <map>
 #include <random>
@@ -11,7 +11,7 @@ static void bench_small_map(benchmark::State &state) {
   auto n{state.range(0)};
   std::mt19937 gen(12345);
   auto keys{generate_keys<KeyType>(n, gen)};
-  cppbench::small_map<KeyType, KeyType> map;
+  cppbench::vec_map<KeyType, KeyType> map;
   for (auto key : keys) {
     map.insert({key, key});
   }

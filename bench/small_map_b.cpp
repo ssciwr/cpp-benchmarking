@@ -1,5 +1,5 @@
 #include "bench.hpp"
-#include "cppbench/small_map.hpp"
+#include "cppbench/vec_map.hpp"
 #include <benchmark/benchmark.h>
 #include <limits>
 #include <map>
@@ -34,12 +34,12 @@ template <typename Map> static void bench_map(benchmark::State &state) {
   state.SetComplexityN(n);
 }
 
-constexpr int nmax{1024};
+constexpr int nmax{32768};
 BENCHMARK_TEMPLATE(bench_map, no_op_map<KeyType, KeyType>)
     ->RangeMultiplier(2)
     ->Range(1, nmax)
     ->Complexity();
-BENCHMARK_TEMPLATE(bench_map, cppbench::small_map<KeyType, KeyType>)
+BENCHMARK_TEMPLATE(bench_map, cppbench::vec_map<KeyType, KeyType>)
     ->RangeMultiplier(2)
     ->Range(1, nmax)
     ->Complexity();
@@ -48,6 +48,10 @@ BENCHMARK_TEMPLATE(bench_map, std::map<KeyType, KeyType>)
     ->Range(1, nmax)
     ->Complexity();
 BENCHMARK_TEMPLATE(bench_map, std::unordered_map<KeyType, KeyType>)
+    ->RangeMultiplier(2)
+    ->Range(1, nmax)
+    ->Complexity();
+BENCHMARK_TEMPLATE(bench_map, cppbench::sorted_vec_map<KeyType, KeyType>)
     ->RangeMultiplier(2)
     ->Range(1, nmax)
     ->Complexity();
