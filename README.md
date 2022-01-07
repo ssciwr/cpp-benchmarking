@@ -1,34 +1,34 @@
-# Welcome to cpp_benchmarking
+# cpp-benchmarking
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/lkeegan/cpp-benchmarking/CI)](https://github.com/lkeegan/cpp-benchmarking/actions?query=workflow%3ACI)
-[![codecov](https://codecov.io/gh/lkeegan/cpp-benchmarking/branch/main/graph/badge.svg)](https://codecov.io/gh/lkeegan/cpp-benchmarking)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ssciwr/cpp-benchmarking/CI)](https://github.com/ssciwr/cpp-benchmarking/actions?query=workflow%3ACI)
+[![codecov](https://codecov.io/gh/ssciwr/cpp-benchmarking/branch/main/graph/badge.svg)](https://codecov.io/gh/ssciwr/cpp-benchmarking)
 
-# Prerequisites
+Sample code to accompany the compact course [Performance benchmarking C++ applications](https://ssc.iwr.uni-heidelberg.de/sites/default/files/ssc-benchmarking.pdf)
 
-Building cpp_benchmarking requires the following software installed:
+Course slides: todo
 
-- A C++17-compliant compiler
-- CMake `>= 3.9`
+## Getting started
 
-# Building cpp_benchmarking
-
-The following sequence of commands builds cpp_benchmarking.
-It assumes that your current working directory is the top-level directory
-of the freshly cloned repository:
+To clone the repo and compile the code:
 
 ```
+git clone --recursive https://github.com/ssciwr/cpp-benchmarking.git
+cd cpp-benchmarking
 mkdir build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build .
 ```
 
-The build process can be customized with the following CMake variables,
-which can be set by adding `-D<var>={ON, OFF}` to the `cmake` call:
+## Micro-benchmarks
 
-- `BUILD_TESTING`: Enable building of the test suite (default: `ON`)
+`./bench/bench` compares the performance of some different map implementations using [Google Benchmark](https://github.com/google/benchmark)
 
-# Documentation
+## Profiling
 
-cpp*benchmarking \_should* provide a documentation.
+todo
+
+## Simulation
+
+todo

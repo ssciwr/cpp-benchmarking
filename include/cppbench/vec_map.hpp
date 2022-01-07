@@ -42,7 +42,7 @@ private:
 public:
   void insert(const std::pair<Key, Value> &p) {
     auto it{std::lower_bound(keys.begin(), keys.end(), p.first)};
-    if(it != keys.end() && *it == p.first){
+    if (it != keys.end() && *it == p.first) {
       // insert is a no-op if key already exists
       return;
     }
@@ -52,7 +52,7 @@ public:
 
   Value find(Key k) const {
     auto res{std::lower_bound(keys.cbegin(), keys.cend(), k)};
-    if (res != keys.cend() && *res == k){
+    if (res != keys.cend() && *res == k) {
       return vals[std::distance(keys.cbegin(), res)];
     }
     return {};
