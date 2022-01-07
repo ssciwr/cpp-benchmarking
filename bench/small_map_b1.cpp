@@ -1,5 +1,5 @@
 #include "bench.hpp"
-#include "cppbench/small_map.hpp"
+#include "cppbench/vec_map.hpp"
 #include <map>
 #include <random>
 #include <unordered_map>
@@ -28,7 +28,7 @@ template <typename Map> static void bench_map(benchmark::State &state) {
 }
 
 constexpr int nmax{1024};
-BENCHMARK_TEMPLATE(bench_map, cppbench::small_map<KeyType, KeyType>)
+BENCHMARK_TEMPLATE(bench_map, cppbench::vec_map<KeyType, KeyType>)
     ->RangeMultiplier(2)
     ->Range(1, nmax)
     ->Complexity();
