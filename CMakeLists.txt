@@ -13,7 +13,11 @@ include(GNUInstallDirs)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Compilation options
+# Find abseil library
+option(CPPBENCH_WITH_ABSEIL OFF)
+if(CPPBENCH_WITH_ABSEIL)
+  find_package(absl REQUIRED)
+endif()
 
 # compile the library
 add_subdirectory(src)

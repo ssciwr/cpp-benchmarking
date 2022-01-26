@@ -1,12 +1,15 @@
 #include "bench.hpp"
 #include "cppbench/vec_map.hpp"
+#ifdef CPPBENCH_WITH_ABSEIL
+#include <absl/container/flat_hash_map.h>
+#endif
 #include <map>
 #include <random>
 #include <unordered_map>
 
 using KeyType = std::uint32_t;
 
-constexpr int nmax{1024};
+constexpr int nmax{4096};
 
 template <typename Map> static void bench_map(benchmark::State &state) {
   auto n{state.range(0)};
@@ -39,3 +42,9 @@ BENCHMARK_TEMPLATE(bench_map, std::unordered_map<KeyType, KeyType>)
     ->RangeMultiplier(2)
     ->Range(1, nmax)
     ->Complexity();
+#ifdef CPPBENCH_WITH_ABSEIL
+BENCHMARK_TEMPLATE(bench_map, absl::flat_hash_map<KeyType, KeyType>)
+    ->RangeMultiplier(2)
+    ->Range(1, nmax)
+    ->Complexity();
+#endif

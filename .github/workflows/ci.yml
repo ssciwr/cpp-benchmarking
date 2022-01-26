@@ -17,13 +17,26 @@ defaults:
     shell: bash
 
 jobs:
-  build-and-test:
-    name: Testing on ${{matrix.os}}
-    runs-on: ${{matrix.os}}
-    strategy:
-      matrix:
-        os: [ubuntu-20.04, macos-11]
+  build-mac:
+    runs-on: macos-11
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
 
+      - name: Install abseil
+        run: brew install abseil
+
+      - name: Build & test
+        run: |
+          mkdir build && cd build
+          cmake -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release -DCPPBENCH_WITH_ABSEIL=ON ..
+          cmake --build . -j 2
+          ctest
+          ./bench/bench4
+
+  build-linux:
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
         with:
@@ -32,7 +45,7 @@ jobs:
       - name: Build & test
         run: |
           mkdir build && cd build
-          cmake -DCMAKE_BUILD_TYPE=Release ..
+          cmake -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release ..
           cmake --build . -j 2
           ctest
           ./bench/bench4
@@ -55,7 +68,7 @@ jobs:
       - name: Build & test
         run: |
           mkdir build && cd build
-          cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="--coverage" ..
+          cmake -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="--coverage" ..
           cmake --build . -j 2
           ctest
 
