@@ -1,5 +1,6 @@
 #pragma once
 #include <benchmark/benchmark.h>
+#include <limits>
 #include <random>
 #include <vector>
 
