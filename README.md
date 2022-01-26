@@ -21,9 +21,14 @@ cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build .
 ```
 
+To enable the optional abseil dependency:
+
+- install abseil, e.g. `brew install abseil` on mac, `sudo apt-get install libabsl-dev` on ubuntu
+- enable it when configuring cmake: `-DCPPBENCH_WITH_ABSEIL=ON`
+
 ## Micro-benchmarks
 
-`./bench/bench` compares the performance of some different map implementations using [Google Benchmark](https://github.com/google/benchmark)
+`./bench/benchX` compare the performance of some different map implementations using the [Google Benchmark](https://github.com/google/benchmark) library.
 
 ## Profiling
 
