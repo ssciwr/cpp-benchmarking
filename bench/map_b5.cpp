@@ -6,6 +6,8 @@
 
 using KeyType = std::uint32_t;
 
+constexpr int nmax{1024};
+
 template <typename Map> static void bench_map(benchmark::State &state) {
   auto n{state.range(0)};
   std::mt19937 gen(12345);
@@ -14,20 +16,17 @@ template <typename Map> static void bench_map(benchmark::State &state) {
   for (auto key : keys) {
     map.insert({key, key});
   }
-  // here we were accidentally improving the cache friendliness of the std::map
-  // by asking for keys in the same order that they were inserted into the map,
-  // can make this a bit more realistic by shuffling them before we start
-  std::shuffle(keys.begin(), keys.end(), gen);
-
   for (auto _ : state) {
-    for (auto key : keys) {
-      benchmark::DoNotOptimize(map.find(key));
+    // do the same number of map.find calls for all n
+    for (int64_t i = 0; i < nmax; i += n) {
+      for (auto key : keys) {
+        benchmark::DoNotOptimize(map.find(key));
+      }
     }
   }
-  state.SetComplexityN(n * n);
+  state.SetComplexityN(n * nmax);
 }
 
-constexpr int nmax{1024};
 BENCHMARK_TEMPLATE(bench_map, cppbench::vec_map<KeyType, KeyType>)
     ->RangeMultiplier(2)
     ->Range(1, nmax)

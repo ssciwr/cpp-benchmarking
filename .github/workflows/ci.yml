@@ -35,7 +35,7 @@ jobs:
           cmake -DCMAKE_BUILD_TYPE=Release ..
           cmake --build . -j 2
           ctest
-          ./bench/bench
+          ./bench/bench4
 
   coverage-test:
     name: Coverage Testing

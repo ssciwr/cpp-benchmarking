@@ -34,24 +34,19 @@ template <typename Map> static void bench_map(benchmark::State &state) {
   state.SetComplexityN(n);
 }
 
-constexpr int nmax{32768};
+constexpr int nmax{4096};
 BENCHMARK_TEMPLATE(bench_map, no_op_map<KeyType, KeyType>)
-    ->RangeMultiplier(2)
-    ->Range(1, nmax)
-    ->Complexity();
+    ->RangeMultiplier(nmax)
+    ->Range(1, nmax);
 BENCHMARK_TEMPLATE(bench_map, cppbench::vec_map<KeyType, KeyType>)
     ->RangeMultiplier(2)
-    ->Range(1, nmax)
-    ->Complexity();
+    ->Range(1, nmax);
 BENCHMARK_TEMPLATE(bench_map, std::map<KeyType, KeyType>)
     ->RangeMultiplier(2)
-    ->Range(1, nmax)
-    ->Complexity();
+    ->Range(1, nmax);
 BENCHMARK_TEMPLATE(bench_map, std::unordered_map<KeyType, KeyType>)
     ->RangeMultiplier(2)
-    ->Range(1, nmax)
-    ->Complexity();
+    ->Range(1, nmax);
 BENCHMARK_TEMPLATE(bench_map, cppbench::sorted_vec_map<KeyType, KeyType>)
     ->RangeMultiplier(2)
-    ->Range(1, nmax)
-    ->Complexity();
+    ->Range(1, nmax);
