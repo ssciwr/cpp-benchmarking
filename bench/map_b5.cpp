@@ -1,4 +1,5 @@
 #include "bench.hpp"
+#include "cppbench/sorted_vec_map.hpp"
 #include "cppbench/vec_map.hpp"
 #ifdef CPPBENCH_WITH_ABSEIL
 #include <absl/container/flat_hash_map.h>
@@ -39,6 +40,10 @@ BENCHMARK_TEMPLATE(bench_map, std::map<KeyType, KeyType>)
     ->Range(1, nmax)
     ->Complexity();
 BENCHMARK_TEMPLATE(bench_map, std::unordered_map<KeyType, KeyType>)
+    ->RangeMultiplier(2)
+    ->Range(1, nmax)
+    ->Complexity();
+BENCHMARK_TEMPLATE(bench_map, cppbench::sorted_vec_map<KeyType, KeyType>)
     ->RangeMultiplier(2)
     ->Range(1, nmax)
     ->Complexity();

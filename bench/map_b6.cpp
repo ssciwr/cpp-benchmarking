@@ -1,4 +1,5 @@
 #include "bench.hpp"
+#include "cppbench/sorted_vec_map.hpp"
 #include "cppbench/vec_map.hpp"
 #ifdef CPPBENCH_WITH_ABSEIL
 #include <absl/container/flat_hash_map.h>
