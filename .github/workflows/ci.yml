@@ -23,10 +23,8 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: "recursive"
-
       - name: Install abseil
         run: brew install abseil
-
       - name: Build & test
         run: |
           mkdir build && cd build
@@ -41,7 +39,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: "recursive"
-
       - name: Build & test
         run: |
           mkdir build && cd build
@@ -50,32 +47,25 @@ jobs:
           ctest
           ./bench/bench4
 
-  coverage-test:
-    name: Coverage Testing
+  coverage:
     runs-on: ubuntu-20.04
-
     steps:
       - uses: actions/checkout@v2
         with:
           submodules: "recursive"
-
       - uses: actions/setup-python@v2
         with:
           python-version: 3.9
-
       - run: pip install gcovr
-
       - name: Build & test
         run: |
           mkdir build && cd build
           cmake -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="--coverage" ..
           cmake --build . -j 2
           ctest
-
       - name: Generate coverage report
         run: |
           gcovr -r . -f include/ --xml -o coverage.xml
-
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
         with:

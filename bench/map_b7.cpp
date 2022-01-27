@@ -1,4 +1,5 @@
 #include "bench.hpp"
+#include "cppbench/sorted_vec_map.hpp"
 #include "cppbench/vec_map.hpp"
 #ifdef CPPBENCH_WITH_ABSEIL
 #include <absl/container/flat_hash_map.h>
@@ -10,19 +11,11 @@
 
 using KeyType = std::uint32_t;
 
-// no-op "Map" that does nothing to allow us to measure overhead of random key
-// selection in benchmark
-template <typename Key, typename Value> struct no_op_map {
-  void insert(const std::pair<Key, Value> &p) {}
-
-  Value find(Key key) { return 0; }
-};
-
 template <typename Map> static void bench_map(benchmark::State &state) {
   auto n{state.range(0)};
   std::mt19937 gen(12345);
   auto keys{generate_keys<KeyType>(n, gen)};
-  // fill ~1gig of RAM with identical maps
+  // fill ~1 gig of RAM with identical maps
   auto nmaps{1024 * 1024 * 32 / n};
   std::vector<Map> maps(nmaps);
   for (auto &map : maps) {
