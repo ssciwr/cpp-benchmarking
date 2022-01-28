@@ -26,9 +26,16 @@ To enable the optional abseil dependency:
 - install abseil, e.g. `brew install abseil` on mac, `sudo apt-get install libabsl-dev` on ubuntu
 - enable it when configuring cmake: `-DCPPBENCH_WITH_ABSEIL=ON`
 
+This code contains two very simple map implementations,
+[vec_map](include/cppbench/vec_map.hpp) and [sorted_vec_map](include/cppbench/sorted_vec_map.hpp),
+along with benchmarks of these and other map implementations.
+
 ## Micro-benchmarks
 
-`./bench/benchX` compare the performance of some different map implementations using the [Google Benchmark](https://github.com/google/benchmark) library.
+- [bench](bench) contains some micro-benchmarks using the [Google Benchmark](https://github.com/google/benchmark) library
+- [plots](plots) contains some sample output & plots of these benchmarks and a simple Python script to make the plots
+
+![plots/bench5.png](plots/bench5.png)
 
 ## Profiling
 
@@ -37,5 +44,7 @@ todo
 ## Simulation
 
 todo
+
+## Acknowledgements
 
 This repo was quickly set up using the SSC [C++ Project Cookiecutter](https://github.com/ssciwr/cookiecutter-cpp-project).
