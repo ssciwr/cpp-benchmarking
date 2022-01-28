@@ -73,12 +73,12 @@ jobs:
       - name: Build & test
         run: |
           mkdir build && cd build
-          cmake -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="--coverage" ..
+          cmake -DBUILD_TESTING=ON -DCPPBENCH_BUILD_BENCHMARKS=OFF -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="--coverage" ..
           cmake --build . -j 2
           ctest
       - name: Generate coverage report
         run: |
-          gcovr -r . -f include/ --xml -o coverage.xml
+          gcovr --exclude-throw-branches -r . -f include/ --xml -o coverage.xml
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
         with:

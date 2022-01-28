@@ -13,7 +13,7 @@ TEMPLATE_TEST_CASE("vec_map", "[map]", (cppbench::vec_map<KeyType, KeyType>),
                    (cppbench::sorted_vec_map<KeyType, KeyType>)) {
   std::mt19937 gen(12345);
   std::uniform_int_distribution<KeyType> dist(-123456, 123456);
-  std::vector<KeyType> keys(100000);
+  std::vector<KeyType> keys(32768);
   std::generate(keys.begin(), keys.end(),
                 [&dist, &gen]() { return dist(gen); });
   std::map<KeyType, KeyType> std_map;

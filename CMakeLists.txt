@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Find abseil library
-option(CPPBENCH_WITH_ABSEIL OFF)
+option(CPPBENCH_WITH_ABSEIL "Use the Abseil library" OFF)
 if(CPPBENCH_WITH_ABSEIL)
   find_package(absl REQUIRED)
 endif()
@@ -34,9 +34,12 @@ if(BUILD_TESTING)
 endif()
 
 # compile the benchmarks
-set(BENCHMARK_ENABLE_TESTING OFF)
-add_subdirectory(ext/benchmark)
-add_subdirectory(bench)
+option(CPPBENCH_BUILD_BENCHMARKS "Build benchmarks" ON)
+if(CPPBENCH_BUILD_BENCHMARKS)
+  set(BENCHMARK_ENABLE_TESTING OFF) # don't build google benchmark tests
+  add_subdirectory(ext/benchmark)
+  add_subdirectory(bench)
+endif()
 
 # Add an alias target for use if this project is included as a subproject in
 # another project
