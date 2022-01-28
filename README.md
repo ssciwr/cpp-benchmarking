@@ -39,7 +39,9 @@ along with benchmarks of these and other map implementations.
 
 ## Profiling
 
-todo
+- [perf](perf) contains some scripts using perf to profile performance
+
+![perf/branch_miss.png](perf/branch_miss.png) ![perf/cache_miss.png](perf/cache_miss.png)
 
 ## Simulation
 
