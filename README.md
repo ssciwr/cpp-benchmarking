@@ -6,7 +6,7 @@
 
 Sample code to accompany the SSC compact course [Performance benchmarking C++ applications](https://ssc.iwr.uni-heidelberg.de/sites/default/files/ssc-benchmarking.pdf)
 
-- (work in progress) [slides as pdf](slides/slides.pdf)
+- (work in progress) [pdf slides](https://github.com/ssciwr/cpp-benchmarking/raw/main/slides/slides.pdf)
 
 ## Getting started
 
