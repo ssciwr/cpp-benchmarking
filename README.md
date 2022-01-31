@@ -1,12 +1,12 @@
-# cpp-benchmarking
+# Performance benchmarking C++ applications
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ssciwr/cpp-benchmarking/CI)](https://github.com/ssciwr/cpp-benchmarking/actions?query=workflow%3ACI)
 [![codecov](https://codecov.io/gh/ssciwr/cpp-benchmarking/branch/main/graph/badge.svg)](https://codecov.io/gh/ssciwr/cpp-benchmarking)
 
-Sample code to accompany the compact course [Performance benchmarking C++ applications](https://ssc.iwr.uni-heidelberg.de/sites/default/files/ssc-benchmarking.pdf)
+Sample code to accompany the SSC compact course [Performance benchmarking C++ applications](https://ssc.iwr.uni-heidelberg.de/sites/default/files/ssc-benchmarking.pdf)
 
-Course slides: todo
+- (work in progress) [slides as pdf](slides/slides.pdf)
 
 ## Getting started
 
@@ -39,9 +39,10 @@ along with benchmarks of these and other map implementations.
 
 ## Profiling
 
-- [perf](perf) contains some scripts using perf to profile performance
+- [perf](perf) contains some scripts and plots using perf to profile performance
 
-![perf/branch_miss.png](perf/branch_miss.png) ![perf/cache_miss.png](perf/cache_miss.png)
+![perf/branch_miss.png](perf/branch_miss.png)
+![perf/cache_miss.png](perf/cache_miss.png)
 
 ## Simulation
 
