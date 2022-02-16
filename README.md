@@ -4,9 +4,10 @@
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ssciwr/cpp-benchmarking/CI)](https://github.com/ssciwr/cpp-benchmarking/actions?query=workflow%3ACI)
 [![codecov](https://codecov.io/gh/ssciwr/cpp-benchmarking/branch/main/graph/badge.svg)](https://codecov.io/gh/ssciwr/cpp-benchmarking)
 
-Sample code to accompany the SSC compact course [Performance benchmarking C++ applications](https://ssc.iwr.uni-heidelberg.de/sites/default/files/ssc-benchmarking.pdf)
+Sample code to accompany the SSC compact course Performance benchmarking C++ applications.
 
-- (work in progress) [pdf slides](https://github.com/ssciwr/cpp-benchmarking/raw/main/slides/slides.pdf)
+- [pdf slides](https://github.com/ssciwr/cpp-benchmarking/raw/main/slides/slides.pdf)
+- [pdf course description](https://ssc.iwr.uni-heidelberg.de/sites/default/files/ssc-benchmarking.pdf)
 
 ## Getting started
 
@@ -46,7 +47,7 @@ along with benchmarks of these and other map implementations.
 
 ## Simulation
 
-todo
+![sim/graph.png](sim/graph.png)
 
 ## Acknowledgements
 

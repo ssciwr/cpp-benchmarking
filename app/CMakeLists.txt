@@ -1,2 +1,0 @@
-add_executable(cppbench_app cppbench_app.cpp)
-target_link_libraries(cppbench_app PRIVATE cppbench)
