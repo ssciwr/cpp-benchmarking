@@ -3,7 +3,7 @@
 	url = https://github.com/catchorg/Catch2.git
 [submodule "ext/benchmark"]
 	path = ext/benchmark
-	url = git://github.com/google/benchmark.git
+	url = https://github.com/google/benchmark.git
 [submodule "ext/abseil-cpp"]
 	path = ext/abseil-cpp
-	url = git@github.com:abseil/abseil-cpp.git
+	url = https://github.com/abseil/abseil-cpp.git
