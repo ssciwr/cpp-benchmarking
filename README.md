@@ -22,11 +22,6 @@ cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build .
 ```
 
-To enable the optional abseil dependency:
-
-- install abseil, e.g. `brew install abseil` on mac, `sudo apt-get install libabsl-dev` on ubuntu
-- enable it when configuring cmake: `-DCPPBENCH_WITH_ABSEIL=ON`
-
 This code contains two very simple map implementations,
 [vec_map](include/cppbench/vec_map.hpp) and [sorted_vec_map](include/cppbench/sorted_vec_map.hpp),
 along with benchmarks of these and other map implementations.

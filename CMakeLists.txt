@@ -13,12 +13,6 @@ include(GNUInstallDirs)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Find abseil library
-option(CPPBENCH_WITH_ABSEIL "Use the Abseil library" OFF)
-if(CPPBENCH_WITH_ABSEIL)
-  find_package(absl REQUIRED)
-endif()
-
 # compile the library
 add_subdirectory(src)
 
@@ -33,8 +27,15 @@ endif()
 # compile the benchmarks
 option(CPPBENCH_BUILD_BENCHMARKS "Build benchmarks" ON)
 if(CPPBENCH_BUILD_BENCHMARKS)
-  set(BENCHMARK_ENABLE_TESTING OFF) # don't build google benchmark tests
+  # compile the abseil library
+  set(ABSL_PROPAGATE_CXX_STD ON)
+  add_subdirectory(ext/abseil-cpp)
+
+  # compile the google benchmark library
+  set(BENCHMARK_ENABLE_TESTING OFF)
   add_subdirectory(ext/benchmark)
+
+  # compile our benchmarks
   add_subdirectory(bench)
 endif()
 

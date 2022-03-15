@@ -17,42 +17,23 @@ defaults:
     shell: bash
 
 jobs:
-  build-mac:
-    runs-on: macos-11
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: "recursive"
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v3
         with:
-          python-version: 3.9
-      - run: brew install abseil
-      - name: Build & test
-        run: |
-          mkdir build && cd build
-          cmake -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release -DCPPBENCH_WITH_ABSEIL=ON ..
-          cmake --build . -j 2
-          ctest
-      - name: Run benchmark and plot results
-        run: |
-          ./build/bench/bench5 --benchmark_out=bench5.json --benchmark_min_time=0.1
-          pip install -r plots/requirements.txt
-          ./plots/plot.py bench5.json
-
-  build-linux:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: "recursive"
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
+          python-version: "3.10"
       - name: Build & test
         run: |
           mkdir build && cd build
           cmake -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release ..
-          cmake --build . -j 2
+          cmake --build . -j 3
           ctest
       - name: Run benchmark and plot results
         run: |
@@ -61,20 +42,20 @@ jobs:
           ./plots/plot.py bench5.json
 
   coverage:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: "recursive"
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v3
         with:
-          python-version: 3.9
+          python-version: "3.10"
       - run: pip install gcovr
       - name: Build & test
         run: |
           mkdir build && cd build
           cmake -DBUILD_TESTING=ON -DCPPBENCH_BUILD_BENCHMARKS=OFF -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="--coverage" ..
-          cmake --build . -j 2
+          cmake --build . -j 3
           ctest
       - name: Generate coverage report
         run: |
