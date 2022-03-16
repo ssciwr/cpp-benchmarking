@@ -21,7 +21,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
       - uses: actions/checkout@v3
         with:
@@ -33,11 +33,15 @@ jobs:
         run: |
           mkdir build && cd build
           cmake -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release ..
-          cmake --build . -j 3
+          cmake --build . --config Release -j 3
           ctest
       - name: Run benchmark and plot results
         run: |
-          ./build/bench/bench5 --benchmark_out=bench5.json --benchmark_min_time=0.1
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            ./build/bench/Release/bench5.exe --benchmark_out=bench5.json --benchmark_min_time=0.1
+          else
+            ./build/bench/bench5 --benchmark_out=bench5.json --benchmark_min_time=0.1
+          fi
           pip install -r plots/requirements.txt
           ./plots/plot.py bench5.json
 
