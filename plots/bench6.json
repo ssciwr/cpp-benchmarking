@@ -32,7 +32,11 @@
         "num_sharing": 6
       }
     ],
-    "load_avg": [0.34, 0.26, 0.23],
+    "load_avg": [
+      0.34,
+      0.26,
+      0.23
+    ],
     "library_build_type": "release"
   },
   "benchmarks": [
