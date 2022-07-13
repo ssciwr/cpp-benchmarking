@@ -14,8 +14,7 @@ cons of each method.
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSfJG2SPALpfAuDUZ9skpvYSEkqCMYGZIY3scXCpHttpSpjZ_fr225hVFOLCN2Y4wqN94mwuhPipez5/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-- [slides as pdf](https://github.com/ssciwr/cpp-benchmarking/raw/main/slides/slides.pdf)
-- [course description as pdf](https://ssc.iwr.uni-heidelberg.de/sites/default/files/ssc-benchmarking.pdf)
+[download slides as pdf](https://github.com/ssciwr/cpp-benchmarking/raw/main/slides/slides.pdf) | [download course description as pdf](https://ssc.iwr.uni-heidelberg.de/sites/default/files/ssc-benchmarking.pdf)
 
 ## Getting started
 
@@ -31,13 +30,13 @@ cmake --build .
 ```
 
 This code contains two very simple map implementations,
-[vec_map](include/cppbench/vec_map.hpp) and [sorted_vec_map](include/cppbench/sorted_vec_map.hpp),
+[vec_map](https://github.com/ssciwr/cpp-benchmarking/blob/main/include/cppbench/vec_map.hpp) and [sorted_vec_map](https://github.com/ssciwr/cpp-benchmarking/blob/main/include/cppbench/sorted_vec_map.hpp),
 along with benchmarks of these and other map implementations.
 
 ## Micro-benchmarks
 
-- [bench](bench) contains some micro-benchmarks using the [Google Benchmark](https://github.com/google/benchmark) library
-- [plots](plots) contains some sample output & plots of these benchmarks and a simple Python script to make the plots
+- [bench](https://github.com/ssciwr/cpp-benchmarking/blob/main/bench) contains some micro-benchmarks using the [Google Benchmark](https://github.com/google/benchmark) library
+- [plots](https://github.com/ssciwr/cpp-benchmarking/blob/main/plots) contains some sample output & plots of these benchmarks and a simple Python script to make the plots
 
 ![plots/bench5.png](plots/bench5.png)
 
