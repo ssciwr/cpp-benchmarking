@@ -4,10 +4,18 @@
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ssciwr/cpp-benchmarking/CI)](https://github.com/ssciwr/cpp-benchmarking/actions?query=workflow%3ACI)
 [![codecov](https://codecov.io/gh/ssciwr/cpp-benchmarking/branch/main/graph/badge.svg)](https://codecov.io/gh/ssciwr/cpp-benchmarking)
 
-Sample code to accompany the SSC compact course Performance benchmarking C++ applications.
+We use C++ to get good performance, so measuring and understanding the performance
+characteristics of our code is vital, for example to identify bottlenecks or to determine if a
+change to the code actually improves the performance. Unfortunately it is also complicated. In
+this course we will cover three different ways to benchmark our code, and discuss the pros and
+cons of each method.
 
-- [pdf slides](https://github.com/ssciwr/cpp-benchmarking/raw/main/slides/slides.pdf)
-- [pdf course description](https://ssc.iwr.uni-heidelberg.de/sites/default/files/ssc-benchmarking.pdf)
+## Slides
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSfJG2SPALpfAuDUZ9skpvYSEkqCMYGZIY3scXCpHttpSpjZ_fr225hVFOLCN2Y4wqN94mwuhPipez5/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+- [slides as pdf](https://github.com/ssciwr/cpp-benchmarking/raw/main/slides/slides.pdf)
+- [course description as pdf](https://ssc.iwr.uni-heidelberg.de/sites/default/files/ssc-benchmarking.pdf)
 
 ## Getting started
 
