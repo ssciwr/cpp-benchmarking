@@ -1,7 +1,7 @@
 # C++ Benchmarking
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ssciwr/cpp-benchmarking/CI)](https://github.com/ssciwr/cpp-benchmarking/actions?query=workflow%3ACI)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ssciwr/cpp-benchmarking/ci.yml?branch=main)](https://github.com/ssciwr/cpp-benchmarking/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/ssciwr/cpp-benchmarking/branch/main/graph/badge.svg)](https://codecov.io/gh/ssciwr/cpp-benchmarking)
 
 We use C++ to get good performance, so measuring and understanding the performance
