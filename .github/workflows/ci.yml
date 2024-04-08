@@ -23,17 +23,17 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: "recursive"
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.12"
       - name: Build & test
         run: |
           mkdir build && cd build
           cmake -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release ..
-          cmake --build . --config Release -j 3
+          cmake --build . --config Release -j 4
           ctest
       - name: Run benchmark and plot results
         run: |
@@ -48,24 +48,24 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: "recursive"
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.12"
       - run: pip install gcovr
       - name: Build & test
         run: |
           mkdir build && cd build
           cmake -DBUILD_TESTING=ON -DCPPBENCH_BUILD_BENCHMARKS=OFF -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="--coverage" ..
-          cmake --build . -j 3
+          cmake --build . -j 4
           ctest
       - name: Generate coverage report
         run: |
           gcovr --exclude-throw-branches -r . -f include/ --xml -o coverage.xml
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v4
         with:
           files: ./coverage.xml
           verbose: true
