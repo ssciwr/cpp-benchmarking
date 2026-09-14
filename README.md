@@ -1,14 +1,14 @@
-# C++ Benchmarking
+# C++ Profiling
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ssciwr/cpp-benchmarking/ci.yml?branch=main)](https://github.com/ssciwr/cpp-benchmarking/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/ssciwr/cpp-benchmarking/branch/main/graph/badge.svg)](https://codecov.io/gh/ssciwr/cpp-benchmarking)
+[![codecov](https://codecov.io/gh/ssciwr/cpp-profiling/branch/main/graph/badge.svg)](https://codecov.io/gh/ssciwr/cpp-benchmarking)
 
-We use C++ to get good performance, so measuring and understanding the performance
-characteristics of our code is vital, for example to identify bottlenecks or to determine if a
-change to the code actually improves the performance. Unfortunately it is also complicated. In
-this course we will cover three different ways to benchmark our code, and discuss the pros and
-cons of each method.
+We use compiled languages like C++, Rust or Fortran to get good performance, so measuring and understanding
+the performance characteristics of our code is vital, for example to identify bottlenecks or to determine if a
+change to the code actually improves the performance. In this course we will cover different ways to profile
+and benchmark the performance of our code, and discuss the pros and cons of each method.
+Code examples will be in C++ but the profiling applies to most compiled languages.
 
 ## Slides
 
